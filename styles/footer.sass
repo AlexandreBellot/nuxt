@@ -1,0 +1,50 @@
+
+
+.siteFooter
+  position: relative
+  z-index: 150
+  // ***** *
+  // CRÉDITS & COOKIES
+  // ***** *
+  .creditsCookiesBlock
+    font-size: 11px
+    &, a, button
+      text-transform: uppercase
+
+
+
+
+// **************************************************************************************************** *
+// **************************************************************************************************** *
+//
+//                                         RESPONSIVE
+//
+// **************************************************************************************************** *
+// **************************************************************************************************** *
+
+@media #{$medium-down-portrait}
+  .siteFooter
+    .credits
+      &-legalPages
+        display: block
+
+      &-author
+        .separation:last-child
+          display: none
+
+
+
+
+
+
+@media #{$small-down}
+  .siteFooter
+    .credits
+      &-parts
+        display: block
+        .separation
+          display: none
+
+
+
+

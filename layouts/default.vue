@@ -1,62 +1,70 @@
 <template>
-  <div>
-    <Nuxt />
+  <div class="layout" :class="[NavIsOpen ? 'openNav' : 'closeNav']">
+    <header class="siteHeader" >
+
+
+      <div class="siteHeader-toggle" @click="toggleNav">
+        <div class="firstBar"></div>
+        <div class="thirdBar"></div>
+      </div>
+
+
+      <div class="siteHeader-menu">
+
+        <nav>
+          <ul>
+            <li><nuxt-link @click.native="closeNav" to="/">Home</nuxt-link></li>
+            <li><nuxt-link @click.native="closeNav" to="/about">About</nuxt-link></li>
+            <li><nuxt-link @click.native="closeNav" to="/contact">Contact</nuxt-link></li>
+          </ul>
+        </nav>
+
+      </div>
+
+    </header>
+    <main>
+      <Nuxt />
+    </main>
   </div>
 </template>
 
-<style>
-html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<script>
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
+  import { MouseAnime, CustomPointer } from "~/plugins/animMouse.js";
+  import { mapGetters } from 'vuex'
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
+  export default {
+    name: 'App',
+    data () {
+      return {
+        NavIsOpen: false
+      }
+    },
+    computed : {
+      ...mapGetters(['getMouseAnime']),
+    },
+    mounted () {
+      this.$store.commit('setMouseAnime', new MouseAnime(
+        '.blockbasline, .siteHeader-toggle, .siteHeader-menu a',
+        8,
+        true,
+        0.4,
+        0.3,
+        new CustomPointer()
+        )
+      )
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
+      this.getMouseAnime.load()
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
+    },
+    methods: {
+      toggleNav () {
+        this.NavIsOpen = !this.NavIsOpen
+      },
+      closeNav () {
+        this.NavIsOpen = false
+      }
+    }
+  }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
-</style>
+</script>

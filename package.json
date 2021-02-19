@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "gsap": "^3.6.0",
     "nuxt": "^2.14.12"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.1"
+  }
 }

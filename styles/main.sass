@@ -1,0 +1,60 @@
+$bg: rgba(230,230,230,0.8)
+$font-path: '/fonts'
+@import "variables"
+
+@font-face
+  font-family: 'Fredericka the Great'
+  src: url('~assets/FrederickatheGreat-Regular.woff2') format('woff2'),
+  url('~assets/FrederickatheGreat-Regular.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'montserrat'
+  src: url('~assets/Montserrat/montserrat-regular-webfont.woff2') format('woff2'),
+  url('~assets/Montserrat/montserrat-regular-webfont.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'montserrat'
+  src: url('~assets/Montserrat/montserrat-light-webfont.woff2') format('woff2'),
+  url('~assets/Montserrat/montserrat-light-webfont.woff') format('woff')
+  font-weight: 300
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'montserrat'
+  src: url('~assets/Montserrat/montserrat-bold-webfont.woff2') format('woff2'),
+  url('~assets/Montserrat/montserrat-bold-webfont.woff') format('woff')
+  font-weight: bold
+  font-style: normal
+  font-display: swap
+
+@import "mixin"
+
+@keyframes menuAnim
+  0%
+    transform: skewX(0deg)
+  30%
+    transform: skewX(8deg)
+  100%
+    transform: skewX(0deg)
+
+@keyframes menuAnim2
+  0%
+    transform: skewX(0deg)
+  30%
+    transform: skewX(6deg)
+  100%
+    transform: skewX(0deg)
+// Element de mise en page
+// **************************************************************************************************** //
+@import "content"
+@import "items"
+@import "header"
+@import "footer"
+

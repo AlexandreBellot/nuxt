@@ -1,0 +1,121 @@
+.siteHeader
+  position: fixed
+  text-align: left
+  top: 0
+  left: 0
+  right: 0
+  height: 120px
+  background: $light
+  z-index: 50
+  &-logoLink, &-siteNav
+    display: inline-block
+    vertical-align: middle
+
+  .siteHeader-toggle
+    border: 1px solid $col1
+    border-radius: 60px
+    height: 60px
+    width : 60px
+    background: $light
+    position: absolute
+    z-index: 3
+    margin-top: -30px
+    margin-left: -30px
+    top: 50%
+    left: 50%
+    @include transition(0s)
+
+  .firstBar,.thirdBar
+    background: #000
+    pointer-events: none
+    backface-visibility: hidden
+    display: block
+    height: 1px
+    left: 15px
+    transition: 0.75s
+    width: 30px
+    top: 20px
+
+  .firstBar
+    box-shadow: #000 0px 10px 0
+    position: absolute
+
+  .thirdBar
+    position: absolute
+    top: 40px
+
+  .openNav &
+
+    .firstBar
+      box-shadow: transparent 0 0 0 0
+      top: 50%
+      transform: rotate(225deg)
+
+
+    .thirdBar
+      top: 50%
+      transform: rotate(315deg)
+
+
+
+  .siteHeader-menu
+    position: fixed
+    top: 0
+    left: -100%
+    width: 100%
+    height: 100vh
+    text-align: center
+    @include transition(1s)
+    background: $col1
+    z-index: 2
+    .openNav &
+      left: 0
+      animation: menuAnim 1s
+    .closeNav &
+      animation: menuAnim2 1s
+
+
+  nav
+    @include flexbox()
+    @include flex-direction(column)
+    @include align-items(center)
+    @include align-content(center)
+    @include justify-content(space-between)
+    height: 100%
+    ul
+      width: 100%
+      padding: 0
+      margin: 0
+
+    li
+      list-style: none
+      display: block
+      padding: 2vh 10px
+
+    a
+      text-decoration: none
+      color: $col2
+      font-size: 3em
+      line-height: 1.5em
+
+
+  .siteNav-button
+    border: 1px solid #000
+
+
+
+
+// **************************************************************************************************** //
+// **************************************************************************************************** //
+//
+//                                            RESPONSIVE
+//
+// **************************************************************************************************** //
+// **************************************************************************************************** //
+
+@media #{$large-up}
+  .siteHeader
+    height: 100vh
+    right: auto
+    width: 20vw
+
