@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="contentHome">
     <article class="spe">
       <div class="block">
         <div class="blockbasline">Hello !</div>
@@ -14,6 +14,7 @@
 
       </div>
     </article>
+    <Product/>
   </div>
 </template>
 
